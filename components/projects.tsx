@@ -3,7 +3,7 @@ import { ExternalLink } from "lucide-react"
 const projects = [
   {
     title: "Loretta",
-    category: "Aplicación Móvil",
+    category: "Aplicacion Web",
     description: "Plataforma de gestión para freelancers. Organización de proyectos, tareas y estimación de precios.",
     tags: ["Flutter", "Dart", "Firebase", "REST APIs", "MVVM", "SOLID"],
     color: "#1B4F8A",
@@ -11,7 +11,7 @@ const projects = [
   },
   {
     title: "Fiborti Analytics",
-    category: "Aplicación Web",
+    category: "Sitio Web",
     description: "Plataforma de marketing y analítica empresarial con chatbot de IA integrado.",
     tags: ["Flutter Web", "Firebase", "IA"],
     color: "#1D9E75",
