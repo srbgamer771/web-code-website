@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Mail, MapPin, Send } from "lucide-react"
+import { Mail, MapPin, Send, MessageCircle } from "lucide-react"
 import { useState } from "react"
 import { SpiderWeb, SpiderWebCorner } from "@/components/spider-web"
 import emailjs from '@emailjs/browser'
@@ -114,6 +114,21 @@ export function Contact() {
                   <p className="text-foreground">Mérida, Yucatán — Trabajo remoto, disponibilidad global</p>
                 </div>
               </div>
+
+              <a
+                href="https://wa.me/529994539777"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 group hover:opacity-80 transition-opacity"
+              >
+                <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <MessageCircle className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">WhatsApp</p>
+                  <p className="text-foreground group-hover:text-primary transition-colors">999 453 9777</p>
+                </div>
+              </a>
             </div>
 
             {/* Code decoration */}
