@@ -40,7 +40,7 @@ export default function RootLayout({
         <div className="relative z-10">
           {children}
         </div>
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <Analytics />
       </body>
     </html>
   )
