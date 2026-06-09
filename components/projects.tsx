@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { ExternalLink } from "lucide-react"
 
 const projects = [
@@ -8,6 +9,7 @@ const projects = [
     tags: ["Flutter", "Dart", "Firebase", "REST APIs", "MVVM", "SOLID"],
     color: "#1B4F8A",
     link: null,
+    image: null,
   },
   {
     title: "Fiborti Analytics",
@@ -16,6 +18,7 @@ const projects = [
     tags: ["Flutter Web", "Firebase", "IA"],
     color: "#1D9E75",
     link: null,
+    image: "/images/projects/fiborti-preview.png",
   },
   {
     title: "Thodri Gis — Aceites Medicinales",
@@ -24,6 +27,7 @@ const projects = [
     tags: ["Next.js", "Tailwind CSS", "Vercel"],
     color: "#8B6914",
     link: "https://thodriaceites.vercel.app",
+    image: "/images/projects/thodri-preview.png",
   },
 ]
 
@@ -47,14 +51,25 @@ export function Projects() {
               key={index}
               className="group bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300"
             >
-              {/* Project preview placeholder */}
-              <div
-                className="aspect-video flex items-center justify-center relative"
-                style={{ background: `linear-gradient(135deg, ${project.color}40, ${project.color}20)` }}
-              >
-                <div className="font-mono text-muted-foreground text-sm">
-                  {"<"} Preview {"/>"}
-                </div>
+              {/* Project preview */}
+              <div className="aspect-video relative overflow-hidden">
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div
+                    className="w-full h-full flex items-center justify-center"
+                    style={{ background: `linear-gradient(135deg, ${project.color}40, ${project.color}20)` }}
+                  >
+                    <div className="font-mono text-muted-foreground text-sm">
+                      {"<"} Preview {"/>"}
+                    </div>
+                  </div>
+                )}
                 {project.link && (
                   <div className="absolute top-2 right-2">
                     <a
