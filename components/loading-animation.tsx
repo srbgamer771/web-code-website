@@ -97,11 +97,12 @@ export default function LoadingAnimation() {
 
   useEffect(() => {
     // Check if user has seen animation before
-    const hasSeenAnimation = localStorage.getItem('hasSeenLoadingAnimation')
-    if (hasSeenAnimation) {
-      setShowAnimation(false)
-      return
-    }
+    // Skip localStorage check for now to always show animation
+    // const hasSeenAnimation = localStorage.getItem('hasSeenLoadingAnimation')
+    // if (hasSeenAnimation) {
+    //   setShowAnimation(false)
+    //   return
+    // }
 
     // Animation sequence timeline
     const timeline = setTimeout(() => setStage(1), 500)   // Portal opens
@@ -112,7 +113,7 @@ export default function LoadingAnimation() {
     const stage6 = setTimeout(() => setStage(6), 5200)  // Final web shot
     const finish = setTimeout(() => {
       setStage(7)
-      localStorage.setItem('hasSeenLoadingAnimation', 'true')
+      // localStorage.setItem('hasSeenLoadingAnimation', 'true')
       setTimeout(() => setShowAnimation(false), 500)
     }, 6000)
 
@@ -362,7 +363,7 @@ export default function LoadingAnimation() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
             onClick={() => {
-              localStorage.setItem('hasSeenLoadingAnimation', 'true')
+              // localStorage.setItem('hasSeenLoadingAnimation', 'true')
               setShowAnimation(false)
             }}
           >
