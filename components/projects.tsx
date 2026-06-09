@@ -18,7 +18,7 @@ const projects = [
     tags: ["Flutter Web", "Firebase", "IA"],
     color: "#1D9E75",
     link: null,
-    image: "/images/projects/fiborti-preview.png",
+    image: "/images/fiborti-preview.png",
   },
   {
     title: "Thodri Gis — Aceites Medicinales",
