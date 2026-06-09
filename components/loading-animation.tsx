@@ -1,83 +1,26 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 // Wave Spider Mascot Component
 const WaveSpider = () => (
-  <motion.svg
-    viewBox="0 0 100 100"
-    className="w-32 h-32 md:w-48 md:h-48"
+  <motion.div
+    className="relative"
     initial={{ scale: 0, rotate: -180 }}
     animate={{ scale: 1, rotate: 0 }}
     transition={{ duration: 0.8, type: "spring", stiffness: 200 }}
   >
-    {/* Spider Body */}
-    <motion.ellipse
-      cx="50"
-      cy="50"
-      rx="18"
-      ry="22"
-      fill="url(#gradient)"
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      transition={{ delay: 0.3, duration: 0.5 }}
+    <Image
+      src="/images/wave-logo.png"
+      alt="Wave Spider Mascot"
+      width={192}
+      height={192}
+      className="w-32 h-32 md:w-48 md:h-48 object-contain"
+      priority
     />
-    
-    {/* Spider Eyes */}
-    <motion.g
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.5, duration: 0.3 }}
-    >
-      <ellipse cx="44" cy="45" rx="4" ry="5" fill="white" />
-      <ellipse cx="56" cy="45" rx="4" ry="5" fill="white" />
-      <circle cx="45" cy="46" r="2" fill="#0D1117" />
-      <circle cx="57" cy="46" r="2" fill="#0D1117" />
-    </motion.g>
-    
-    {/* Spider Smile */}
-    <motion.path
-      d="M 44 58 Q 50 62 56 58"
-      stroke="white"
-      strokeWidth="2"
-      fill="none"
-      strokeLinecap="round"
-      initial={{ pathLength: 0 }}
-      animate={{ pathLength: 1 }}
-      transition={{ delay: 0.6, duration: 0.4 }}
-    />
-    
-    {/* Spider Legs */}
-    {[
-      { d: "M 32 35 Q 15 25 5 30", delay: 0.7 },
-      { d: "M 35 38 Q 18 38 8 45", delay: 0.75 },
-      { d: "M 35 45 Q 20 55 12 65", delay: 0.8 },
-      { d: "M 68 35 Q 85 25 95 30", delay: 0.7 },
-      { d: "M 65 38 Q 82 38 92 45", delay: 0.75 },
-      { d: "M 65 45 Q 80 55 88 65", delay: 0.8 },
-    ].map((leg, i) => (
-      <motion.path
-        key={i}
-        d={leg.d}
-        stroke="url(#gradient)"
-        strokeWidth="3"
-        fill="none"
-        strokeLinecap="round"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: 1 }}
-        transition={{ delay: leg.delay, duration: 0.5 }}
-      />
-    ))}
-    
-    {/* Gradient Definition */}
-    <defs>
-      <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#EF4444" />
-        <stop offset="100%" stopColor="#3B82F6" />
-      </linearGradient>
-    </defs>
-  </motion.svg>
+  </motion.div>
 )
 
 // Particle Component
