@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { SpiderWebBackground } from '@/components/spider-web'
-import LoadingAnimation from '@/components/loading-animation'
+import WaveLoader from '@/components/wave-loader'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${geistSans.variable} ${geistMono.variable} bg-background`}>
       <body className="font-sans antialiased relative">
-        <LoadingAnimation />
+        <WaveLoader />
         {/* Full page spider web background */}
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
           <SpiderWebBackground className="w-full h-full text-primary/30" />

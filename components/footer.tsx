@@ -1,15 +1,14 @@
 import Link from "next/link"
+import { WaveMascot } from "@/components/wave-mascot"
 
 export function Footer() {
   return (
-    <footer className="py-12 px-4 border-t border-border">
+    <footer className="py-12 px-4 border-t border-border relative">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-red-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm">
-                &lt;/&gt;
-              </div>
+              <WaveMascot variant="saludando" size="xs" />
               <span className="font-bold text-white text-lg">
                 Web Code
               </span>

@@ -9,7 +9,7 @@ const projects = [
     tags: ["Flutter", "Dart", "Firebase", "REST APIs", "MVVM", "SOLID"],
     color: "#1B4F8A",
     link: null,
-    image: null,
+    image: "/images/loretta-preview.png",
   },
   {
     title: "Fiborti Analytics",
@@ -29,6 +29,16 @@ const projects = [
     link: "https://thodriaceites.vercel.app",
     image: "/images/projects/thodri-preview.png",
   },
+  {
+    title: "Yaneth Rivera Guerra — Odontología Pediátrica",
+    category: "Branding / Identidad Visual",
+    description: "Diseño de logo e identidad de marca para consultorio de odontología pediátrica, con mascota ilustrada y paleta de colores cálida pensada para niños.",
+    tags: ["Branding", "Diseño de Logo", "Identidad Visual"],
+    color: "#7DBE7C",
+    link: null,
+    image: "/images/yaneth-logo-preview.png",
+    isDesign: true,
+  },
 ]
 
 export function Projects() {
@@ -45,7 +55,7 @@ export function Projects() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -80,6 +90,16 @@ export function Projects() {
                     >
                       <ExternalLink className="w-4 h-4 text-foreground" />
                     </a>
+                  </div>
+                )}
+                {project.isDesign && (
+                  <div className="absolute top-2 left-2">
+                    <span
+                      className="px-3 py-1 bg-background/80 backdrop-blur-sm text-sm font-medium rounded-lg border"
+                      style={{ color: project.color, borderColor: `${project.color}66` }}
+                    >
+                      🎨 Diseño
+                    </span>
                   </div>
                 )}
               </div>
