@@ -33,7 +33,7 @@ export function Contact() {
     }
 
     if (!validateEmail(formData.email)) {
-      setErrorMessage("Por favor, ingresa un email vÃ¡lido.")
+      setErrorMessage("Por favor, ingresa un email válido.")
       setSubmitStatus("error")
       return
     }
@@ -63,7 +63,7 @@ export function Contact() {
     } catch (error) {
       console.error("EmailJS error:", error)
       setSubmitStatus("error")
-      setErrorMessage("Algo saliÃ³ mal. EscrÃ­benos a webcodeofficial1@gmail.com")
+      setErrorMessage("Algo salió mal. Escríbenos a webcodeofficial1@gmail.com")
     } finally {
       setIsSubmitting(false)
     }
@@ -78,10 +78,10 @@ export function Contact() {
         <div className="text-center mb-16">
           <p className="text-primary font-mono text-sm tracking-widest mb-4">CONTACTO</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 text-balance">
-            Â¿Listo para comenzar tu proyecto?
+            ¿Listo para comenzar tu proyecto?
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            CuÃ©ntanos sobre tu idea y te ayudaremos a hacerla realidad.
+            Cuéntanos sobre tu idea y te ayudaremos a hacerla realidad.
           </p>
         </div>
 
@@ -91,7 +91,7 @@ export function Contact() {
             <div>
               <h3 className="text-xl font-semibold text-foreground mb-4">Hablemos</h3>
               <p className="text-muted-foreground">
-                Estamos aquÃ­ para ayudarte a transformar tu visiÃ³n en realidad digital. ContÃ¡ctanos y comencemos a trabajar juntos.
+                Estamos aquí para ayudarte a transformar tu visión en realidad digital. Contáctanos y comencemos a trabajar juntos.
               </p>
             </div>
 
@@ -111,8 +111,8 @@ export function Contact() {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">UbicaciÃ³n</p>
-                  <p className="text-foreground">MÃ©rida, YucatÃ¡n â€” Trabajo remoto, disponibilidad global</p>
+                  <p className="text-sm text-muted-foreground">Ubicación</p>
+                  <p className="text-foreground">Mérida, Yucatán — Trabajo remoto, disponibilidad global</p>
                 </div>
               </div>
 
@@ -150,10 +150,10 @@ export function Contact() {
             <div className="bg-card border border-border rounded-lg p-4 font-mono text-sm">
               <pre className="text-muted-foreground">
                 <code>
-{`// Tu prÃ³ximo proyecto
+{`// Tu próximo proyecto
 `}<span className="text-primary">await</span>{` webCode.crearSolucion({
-  cliente: `}<span className="text-accent">{'"TÃº"'}</span>{`,
-  Ã©xito: `}<span className="text-foreground">true</span>{`
+  cliente: `}<span className="text-accent">{'"Tú"'}</span>{`,
+  éxito: `}<span className="text-foreground">true</span>{`
 });`}
                 </code>
               </pre>
@@ -203,14 +203,14 @@ export function Contact() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-none"
-                placeholder="CuÃ©ntanos sobre tu proyecto..."
+                placeholder="Cuéntanos sobre tu proyecto..."
               />
             </div>
 
             {/* Status Messages */}
             {submitStatus === "success" && (
               <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-sm">
-                Â¡Mensaje enviado! Te contactamos pronto.
+                ¡Mensaje enviado! Te contactamos pronto.
               </div>
             )}
 

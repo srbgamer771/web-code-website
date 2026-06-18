@@ -62,13 +62,16 @@ export function Projects() {
               className="group bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300"
             >
               {/* Project preview */}
-              <div className="aspect-video relative overflow-hidden">
+              <div
+                className="aspect-video relative overflow-hidden"
+                style={project.isDesign ? { backgroundColor: `${project.color}22` } : undefined}
+              >
                 {project.image ? (
                   <Image
                     src={project.image}
                     alt={`${project.title} preview`}
                     fill
-                    className="object-cover"
+                    className={project.isDesign ? "object-contain p-4" : "object-cover"}
                   />
                 ) : (
                   <div

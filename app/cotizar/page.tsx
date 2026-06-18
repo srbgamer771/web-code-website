@@ -147,7 +147,7 @@ export default function CotizarPage() {
                   </span>
                 </div>
                 <p className="text-gray-400 text-xs">{s.descripcion}</p>
-                <p className="text-gray-500 text-xs mt-1">⏱ {s.tiempo}</p>
+                <p className="text-gray-500 text-xs mt-1">Tiempo estimado: {s.tiempo}</p>
               </button>
             ))}
           </div>
@@ -212,7 +212,7 @@ export default function CotizarPage() {
             }`}
           >
             <div>
-              <div className="font-medium text-sm text-left">⚡ Entrega urgente</div>
+              <div className="font-medium text-sm text-left">Entrega urgente</div>
               <div className="text-gray-400 text-xs text-left">Menos de la mitad del tiempo estimado</div>
             </div>
             <span className={`text-sm font-semibold ${urgente ? "text-yellow-400" : "text-gray-400"}`}>
@@ -266,7 +266,7 @@ export default function CotizarPage() {
             </div>
 
             <div className="mt-4 text-center">
-              <p className="text-xs text-gray-500">⏱ Tiempo estimado: {servicio.tiempo}</p>
+              <p className="text-xs text-gray-500">Tiempo estimado: {servicio.tiempo}</p>
               <p className="text-xs text-gray-500 mt-1">* Precios en MXN, sin IVA</p>
             </div>
           </div>
