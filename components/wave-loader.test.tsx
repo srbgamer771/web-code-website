@@ -23,7 +23,7 @@ describe("WaveLoader", () => {
     )
     expect(
       screen.getByRole("img", { name: /wave, mascota de webcode/i }),
-    ).toHaveAttribute("src", "/assets/wave/wave-programando.png")
+    ).toHaveAttribute("src", "/assets/wave/wave-programando-transparent.png")
     expect(screen.getByText("Web Code")).toBeInTheDocument()
     expect(
       screen.getByText("Conectando ideas, creando futuro."),
@@ -57,7 +57,7 @@ describe("WaveLoader", () => {
   })
 
   it("does not render when it has already been shown in the session", () => {
-    sessionStorage.setItem("wave-loader-seen", "true")
+    sessionStorage.setItem("wave-loader-seen-v2", "true")
 
     render(<WaveLoader />)
 

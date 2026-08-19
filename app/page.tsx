@@ -1,21 +1,116 @@
-import { Header } from "@/components/header"
-import { Hero } from "@/components/hero"
-import { Services } from "@/components/services"
-import { Process } from "@/components/process"
-import { Projects } from "@/components/projects"
-import { Contact } from "@/components/contact"
-import { Footer } from "@/components/footer"
+import Image from "next/image"
+import type { LucideIcon } from "lucide-react"
+import { ArrowDown, ArrowRight, ArrowUpRight, Braces, ChartNoAxesCombined, Code2, Compass, ExternalLink, Globe2, Mail, MessageCircle, MonitorSmartphone, PenTool, Rocket, Search, Sparkles } from "lucide-react"
+import { SpiderWeb } from "../components/spider-web"
+
+const services: Array<{ title: string; description: string; icon: LucideIcon }> = [
+  { title: "Sitios web", description: "Experiencias rápidas y memorables que convierten visitas en oportunidades.", icon: Globe2 },
+  { title: "Aplicaciones web", description: "Productos digitales intuitivos, robustos y preparados para crecer.", icon: MonitorSmartphone },
+  { title: "Software a medida", description: "Sistemas que resuelven procesos reales sin forzar tu operación.", icon: Code2 },
+  { title: "Branding y diseño", description: "Identidades visuales con intención, carácter y consistencia.", icon: PenTool },
+  { title: "IA e integraciones", description: "Automatización útil que conecta herramientas y acelera resultados.", icon: Sparkles },
+]
+
+const projects = [
+  { image: "/assets/projects/yaneth-logo-preview.jpeg", href: "/assets/projects/yaneth-logo-preview.jpeg", action: "Ver identidad visual", category: "Identidad visual", title: "Yaneth Rivera Guerra", description: "Branding cálido y memorable para odontología pediátrica.", accent: "blue", tags: ["Branding", "Logo"] },
+  { image: "/assets/projects/fiborti-preview.png", href: "/assets/projects/fiborti-preview.png", action: "Ver vista previa", category: "Sitio web", title: "Fiborti Analytics", description: "Marketing y analítica empresarial en una experiencia clara.", accent: "red", tags: ["Web", "Analytics"] },
+  { image: "/assets/projects/thodri-preview.png", href: "https://thodriaceites.vercel.app", action: "Visitar sitio", category: "E-commerce", title: "Thodri Gis", description: "Catálogo digital enfocado en bienestar y conversión.", accent: "blue", tags: ["Next.js", "UX/UI"] },
+] as const
+
+const process: Array<{ number: string; title: string; description: string; icon: LucideIcon }> = [
+  { number: "01", title: "Descubrimiento", description: "Entendemos el reto, los objetivos y a las personas.", icon: Search },
+  { number: "02", title: "Dirección", description: "Definimos experiencia, arquitectura y lenguaje visual.", icon: Compass },
+  { number: "03", title: "Desarrollo", description: "Convertimos el diseño en un producto sólido y escalable.", icon: Braces },
+  { number: "04", title: "Lanzamiento", description: "Probamos, optimizamos y publicamos con confianza.", icon: Rocket },
+  { number: "05", title: "Evolución", description: "Medimos, aprendemos y mejoramos el producto contigo.", icon: ChartNoAxesCombined },
+]
+
+const nav = [["Servicios", "#servicios"], ["Proyectos", "#proyectos"], ["Proceso", "#proceso"], ["Equipo", "#equipo"], ["Contacto", "#contacto"]]
 
 export default function Home() {
-  return (
-    <main className="min-h-screen">
-      <Header />
-      <Hero />
-      <Services />
-      <Process />
-      <Projects />
-      <Contact />
-      <Footer />
-    </main>
-  )
+  return <main id="contenido" tabIndex={-1} className="min-h-screen overflow-hidden bg-[#090b10] text-white selection:bg-[#1e90ff]/30">
+    <Header /><Hero /><Services /><Projects /><Process /><Team /><Contact /><Footer />
+  </main>
+}
+
+function Header() {
+  return <header className="sticky top-0 z-50 border-b border-white/[0.08] bg-[#090b10]/88 backdrop-blur-xl"><div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 md:px-10">
+    <a href="#inicio" aria-label="Ir al inicio" className="transition-opacity hover:opacity-80"><Image src="/assets/brand/webcode-logo-oficial-transparente.png" alt="WebCode" width={220} height={65} className="h-auto w-40 md:w-52" priority /></a>
+    <nav aria-label="Navegación principal" className="hidden items-center gap-7 text-sm text-white/65 md:flex">{nav.map(([label, href]) => <a key={href} href={href} className="transition hover:text-white">{label}</a>)}</nav>
+    <a href="#contacto" className="group hidden items-center gap-2 rounded-full border border-white/20 bg-white/[0.03] px-4 py-2.5 text-xs font-semibold transition hover:border-[#ff2a2a]/70 hover:bg-[#ff2a2a]/10 md:flex">Inicia tu proyecto <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></a>
+    <details className="relative md:hidden"><summary className="cursor-pointer list-none rounded-full border border-white/20 px-4 py-2 text-xs">Menú</summary><nav aria-label="Navegación móvil" className="absolute right-0 top-12 grid min-w-48 gap-1 rounded-xl border border-white/15 bg-[#121722] p-2 text-sm shadow-2xl">{nav.map(([label, href]) => <a key={href} className="rounded-lg px-4 py-3 text-white/70 hover:bg-white/5 hover:text-white" href={href}>{label}</a>)}</nav></details>
+  </div></header>
+}
+
+function Hero() {
+  return <section id="inicio" className="relative isolate overflow-hidden border-b border-white/[0.07]">
+    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_44%,rgba(30,144,255,.11),transparent_30%),radial-gradient(circle_at_92%_52%,rgba(255,42,42,.09),transparent_26%)]" />
+    <SpiderWeb className="webcode-web-drift pointer-events-none absolute -right-40 top-1/2 h-[680px] w-[680px] -translate-y-1/2 text-[#ff2a2a]/10" /><SpiderWeb className="webcode-web-drift-alt pointer-events-none absolute -left-48 top-1/3 h-[560px] w-[560px] text-[#1e90ff]/10" />
+    <div className="relative z-10 mx-auto grid min-h-[calc(100svh-5rem)] max-w-[1440px] items-center gap-12 px-5 py-14 md:grid-cols-[.78fr_1.22fr] md:px-10 lg:py-16">
+      <div className="webcode-reveal"><Eyebrow color="blue">Estudio digital</Eyebrow><h1 className="mt-6 max-w-[9ch] text-5xl font-bold leading-[.88] tracking-[-.07em] sm:text-6xl lg:text-[5.25rem]">CONECTAMOS IDEAS, CREAMOS <span className="text-[#ff2a2a]">FUTURO.</span></h1><p className="mt-7 max-w-md text-base leading-7 text-white/62">Diseñamos y desarrollamos productos digitales con identidad, estrategia y tecnología que sí resuelve.</p>
+        <div className="mt-8 flex flex-wrap gap-3"><a href="#contacto" className="group flex items-center gap-2 rounded-full bg-[#ff2a2a] px-5 py-3 text-sm font-bold shadow-[0_12px_34px_rgba(255,42,42,.22)] transition hover:-translate-y-0.5 hover:bg-[#ff4242]">Inicia tu proyecto <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></a><a href="#proyectos" className="group flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.02] px-5 py-3 text-sm font-bold transition hover:border-[#1e90ff]/60 hover:bg-[#1e90ff]/5">Ver proyectos <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-1" /></a></div>
+        <div className="mt-12 flex items-center gap-4 text-[11px] uppercase tracking-[.18em] text-white/35"><span className="h-px w-10 bg-gradient-to-r from-[#1e90ff] to-[#ff2a2a]" />Diseño · Código · Estrategia</div>
+      </div>
+      <div className="webcode-wave-float relative overflow-hidden rounded-[24px] border border-white/15 bg-[#0c1018] shadow-[0_34px_110px_rgba(0,0,0,.5)]"><div className="pointer-events-none absolute inset-0 z-10 rounded-[inherit] ring-1 ring-inset ring-white/[0.06]" /><Image src="/assets/brand/webcode-hero-wave-original.png" alt="Santiago Ríos, Diego Escobar y Wave" width={1440} height={1080} className="h-auto w-full" priority /></div>
+    </div>
+  </section>
+}
+
+function Services() {
+  return <section id="servicios" className="border-b border-white/[0.08] bg-[#0b0e15]"><div className="webcode-section-reveal relative mx-auto max-w-[1440px] px-5 py-20 md:px-10 lg:py-24"><ConnectionRail index="01" accent="red" /><div className="grid gap-8 lg:grid-cols-[.72fr_2.28fr]">
+    <div className="relative"><Eyebrow color="red">Lo que hacemos</Eyebrow><h2 className="mt-5 max-w-sm text-3xl font-bold leading-tight tracking-[-.05em] md:text-4xl">Soluciones digitales a la medida de tus <span className="text-[#1e90ff]">objetivos.</span></h2><div className="mt-5 hidden items-center gap-2 lg:flex"><Image src="/assets/wave/poses/wave-presentando.png" alt="Wave presentando los servicios de WebCode" width={512} height={512} className="webcode-guide-wave h-28 w-28 object-contain" /><span className="max-w-32 font-mono text-[9px] uppercase leading-4 tracking-[.14em] text-white/42">Ideas conectadas a soluciones reales</span></div></div>
+    <div className="grid overflow-hidden rounded-2xl border border-white/[0.09] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-5">{services.map((service, index) => <Service key={service.title} {...service} index={index} />)}</div>
+  </div></div></section>
+}
+
+function Service({ title, description, icon: Icon, index }: { title: string; description: string; icon: LucideIcon; index: number }) {
+  const blue = index % 2 === 0
+  return <article className="group relative min-h-64 bg-[#0b0e15] p-5 transition hover:bg-[#111722]"><div className="flex items-start justify-between"><span className={`grid h-11 w-11 place-items-center rounded-xl border ${blue ? "border-[#1e90ff]/35 bg-[#1e90ff]/8 text-[#4ba7ff]" : "border-[#ff2a2a]/35 bg-[#ff2a2a]/8 text-[#ff5151]"}`}><Icon className="h-5 w-5" strokeWidth={1.6} /></span><span className="font-mono text-[10px] text-white/40">0{index + 1}</span></div><h3 className="mt-10 font-semibold leading-tight">{title}</h3><p className="mt-3 text-xs leading-5 text-white/64">{description}</p><ArrowUpRight className={`absolute bottom-5 right-5 h-4 w-4 opacity-0 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100 ${blue ? "text-[#1e90ff]" : "text-[#ff2a2a]"}`} /></article>
+}
+
+function Projects() {
+  return <section id="proyectos" className="webcode-section-reveal relative mx-auto max-w-[1440px] px-5 py-24 md:px-10 lg:py-28"><ConnectionRail index="02" accent="blue" /><div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><Eyebrow color="blue">Proyectos destacados</Eyebrow><h2 className="mt-5 text-4xl font-bold tracking-[-.06em] md:text-5xl">Trabajos que hablan por <span className="text-[#ff2a2a]">nosotros.</span></h2></div><p className="max-w-sm text-sm leading-6 text-white/64">Cada proyecto combina una necesidad real, una dirección visual propia y tecnología elegida con intención.</p></div><div className="mt-12 grid gap-5 md:grid-cols-3">{projects.map(project => <Project key={project.title} {...project} />)}</div><div aria-hidden="true" className="webcode-wave-swing pointer-events-none absolute -bottom-20 right-3 z-20 hidden w-36 lg:block xl:right-8 xl:w-44"><Image src="/assets/wave/poses/wave-columpiandose.png" alt="" width={512} height={512} className="h-auto w-full drop-shadow-[0_18px_35px_rgba(0,0,0,.5)]" /></div></section>
+}
+
+function Project({ image, href, action, category, title, description, accent, tags }: (typeof projects)[number]) {
+  const blue = accent === "blue"
+  return <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`${action}: ${title}. Se abre en una pestaña nueva.`} className={`group block overflow-hidden rounded-2xl border bg-[#0d1119] transition duration-300 hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:ring-offset-[#090b10] ${blue ? "border-white/12 hover:border-[#1e90ff]/45 focus-visible:border-[#1e90ff]/60 focus-visible:ring-[#1e90ff]/80" : "border-white/12 hover:border-[#ff2a2a]/45 focus-visible:border-[#ff2a2a]/60 focus-visible:ring-[#ff2a2a]/80"}`}><div className="relative aspect-[16/10] overflow-hidden bg-white"><Image src={image} alt={`Vista previa de ${title}`} fill className="object-cover transition duration-500 group-hover:scale-[1.025] group-focus-visible:scale-[1.025]" /><span aria-hidden="true" className="absolute right-4 top-4 flex items-center gap-2 rounded-full border border-white/15 bg-black/75 px-3 py-2 text-[10px] font-semibold uppercase tracking-[.12em] text-white backdrop-blur"><span className="hidden lg:inline">Abrir</span><ExternalLink className="h-3.5 w-3.5" /></span></div><div className="p-5"><p className={`font-mono text-[10px] uppercase tracking-[.16em] ${blue ? "text-[#1e90ff]" : "text-[#ff4a4a]"}`}>{category}</p><h3 className="mt-3 text-xl font-semibold tracking-[-.03em]">{title}</h3><p className="mt-3 min-h-12 text-sm leading-6 text-white/50">{description}</p><div className="mt-5 flex flex-wrap gap-2">{tags.map(tag => <span key={tag} className="rounded-full border border-white/10 bg-white/[0.035] px-3 py-1 text-[10px] text-white/45">{tag}</span>)}</div><span aria-hidden="true" className={`mt-5 flex items-center justify-between border-t border-white/[0.08] pt-4 text-xs font-semibold ${blue ? "text-[#63b2ff]" : "text-[#ff6666]"}`}><span>{action}</span><ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-focus-visible:-translate-y-0.5 group-focus-visible:translate-x-0.5" /></span></div></a>
+}
+
+function Process() {
+  return <section id="proceso" className="border-y border-white/[0.08] bg-[#0b0e15]"><div className="webcode-section-reveal relative mx-auto grid max-w-[1440px] gap-10 px-5 py-18 md:px-10 md:py-20 lg:grid-cols-[.55fr_1.45fr] lg:py-18"><ConnectionRail index="03" accent="red" /><div><Eyebrow color="red">Nuestro proceso</Eyebrow><h2 className="mt-5 text-4xl font-bold leading-none tracking-[-.06em] md:text-5xl">De la idea al <span className="text-[#1e90ff]">impacto.</span></h2><p className="mt-5 max-w-sm text-sm leading-6 text-white/68">Una ruta clara, colaborativa y sin cajas negras para llevar tu producto de la intención al mundo.</p><div className="mt-6 flex w-fit items-center gap-3 rounded-full border border-[#1e90ff]/20 bg-[#1e90ff]/5 px-4 py-2 text-[11px] text-white/65"><span className="h-2 w-2 rounded-full bg-[#1e90ff] shadow-[0_0_14px_#1e90ff]" />Wave acompaña cada etapa</div><div className="mt-6 flex max-w-sm items-center gap-3 rounded-2xl border border-white/[0.09] bg-[#0e131d] p-3 pr-5"><div className="relative h-24 w-28 shrink-0"><div className="webcode-wave-glow absolute inset-4 rounded-full bg-[#1e90ff]/20 blur-xl" /><Image src="/assets/wave/poses/wave-tejiendo-red.png" alt="" width={512} height={512} className="webcode-guide-wave relative h-full w-full object-contain" /></div><div><p className="font-mono text-[9px] uppercase tracking-[.16em] text-[#1e90ff]">Wave / guía de proceso</p><p className="mt-1.5 text-xs leading-5 text-white/65">Conecta estrategia, diseño y código para que ninguna decisión quede aislada.</p></div></div></div><ol className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4 before:absolute before:left-0 before:right-0 before:top-8 before:hidden before:border-t before:border-dashed before:border-white/15 lg:before:block">{process.map((step, index) => <ProcessStep key={step.number} {...step} index={index} />)}</ol></div></section>
+}
+
+function ProcessStep({ number, title, description, icon: Icon, index }: { number: string; title: string; description: string; icon: LucideIcon; index: number }) {
+  const blue = index % 2 === 0
+  return <li className="relative"><div className={`relative z-10 grid h-16 w-16 place-items-center rounded-full border bg-[#0b0e15] shadow-[0_0_30px_rgba(0,0,0,.45)] ${blue ? "border-[#1e90ff]/65 text-[#1e90ff]" : "border-[#ff2a2a]/65 text-[#ff3f3f]"}`}><Icon className="h-6 w-6" strokeWidth={1.5} /></div><span className={`mt-6 block font-mono text-xs ${blue ? "text-[#1e90ff]" : "text-[#ff2a2a]"}`}>{number}</span><h3 className="mt-2 font-semibold">{title}</h3><p className="mt-2 text-xs leading-5 text-white/64">{description}</p></li>
+}
+
+function Team() {
+  return <section id="equipo" className="relative border-b border-white/[0.08]"><SpiderWeb className="webcode-web-drift-alt pointer-events-none absolute -right-60 top-1/2 h-[620px] w-[620px] -translate-y-1/2 text-[#ff2a2a]/5" /><div className="webcode-section-reveal relative mx-auto grid max-w-[1440px] gap-8 px-5 py-18 md:px-10 md:py-20 lg:grid-cols-[.55fr_1.45fr] lg:py-18"><ConnectionRail index="04" accent="blue" /><div><Eyebrow color="blue">El equipo</Eyebrow><h2 className="mt-5 text-4xl font-bold tracking-[-.06em] md:text-5xl">Personas que construyen <span className="text-[#1e90ff]">WebCode.</span></h2><p className="mt-5 max-w-sm text-sm leading-6 text-white/68">Producto, tecnología y marca trabajando como una sola disciplina.</p></div><div className="grid gap-5 md:grid-cols-2"><Person image="/assets/brand/santiago-portrait-original.png" name="Santiago Ríos" role="Developer / Product Builder" description="Convierte problemas complejos en productos digitales claros, rápidos y preparados para evolucionar." tags={["Flutter", "Web", "Firebase", "UX/UI"]} accent="blue" portfolioHref="/equipo/santiago-rios" /><Person image="/assets/brand/diego-portrait-original.png" name="Diego Escobar" role="Creative / Brand Direction" description="Da dirección, carácter y una voz propia a marcas que necesitan conectar y ser recordadas." tags={["Branding", "Contenido", "Diseño", "Estrategia"]} accent="red" portfolioHref="/equipo/diego-escobar" /></div></div></section>
+}
+
+function Person({ image, name, role, description, tags, accent, portfolioHref }: { image: string; name: string; role: string; description: string; tags: string[]; accent: "blue" | "red"; portfolioHref: string }) {
+  const blue = accent === "blue"
+  return <article className={`group relative overflow-hidden rounded-2xl border bg-[#0d1119] transition duration-300 hover:-translate-y-1 ${blue ? "border-[#1e90ff]/30 hover:border-[#1e90ff]/60" : "border-[#ff2a2a]/30 hover:border-[#ff2a2a]/60"}`}><div className={`absolute inset-x-0 top-0 h-32 opacity-45 blur-3xl ${blue ? "bg-[#1e90ff]/15" : "bg-[#ff2a2a]/15"}`} /><Image src={image} alt={name} width={1122} height={1440} className="relative h-64 w-full object-cover object-top transition duration-500 group-hover:scale-[1.015]" /><div className="relative border-t border-white/[0.08] p-5"><p className={`font-mono text-[10px] uppercase tracking-[.12em] ${blue ? "text-[#1e90ff]" : "text-[#ff3f3f]"}`}>{role}</p><h3 className="mt-2 text-2xl font-semibold tracking-[-.04em]">{name}</h3><p className="mt-3 min-h-[3.25rem] text-sm leading-5 text-white/50">{description}</p><div className="mt-3 flex flex-wrap gap-2">{tags.map(tag => <span key={tag} className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] text-white/48">{tag}</span>)}</div><a href={portfolioHref} className={`mt-4 flex items-center justify-between rounded-xl border px-4 py-3 text-sm font-semibold transition ${blue ? "border-[#1e90ff]/25 bg-[#1e90ff]/5 hover:border-[#1e90ff]/60 hover:bg-[#1e90ff]/10" : "border-[#ff2a2a]/25 bg-[#ff2a2a]/5 hover:border-[#ff2a2a]/60 hover:bg-[#ff2a2a]/10"}`}>Ver perfil y portafolio <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></a></div></article>
+}
+
+function Contact() {
+  return <section id="contacto" className="relative mx-auto max-w-[1440px] px-5 py-20 md:px-10 lg:py-24"><ConnectionRail index="05" accent="red" /><div className="webcode-section-reveal relative isolate overflow-hidden rounded-[24px] border border-white/20 bg-[#0d121c] p-8 shadow-[0_30px_90px_rgba(0,0,0,.35)] md:p-14"><div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_12%_50%,rgba(30,144,255,.16),transparent_32%),radial-gradient(circle_at_88%_50%,rgba(255,42,42,.14),transparent_34%)]" /><div className="flex flex-col justify-between gap-8 md:flex-row md:items-center"><div className="relative z-10"><Eyebrow color="red">Hablemos</Eyebrow><h2 className="mt-5 text-4xl font-bold tracking-[-.06em] md:text-6xl">¿Tienes una <span className="text-[#ff2a2a]">idea</span><br />en mente?</h2><p className="mt-4 max-w-md text-sm leading-6 text-white/50">Cuéntanos qué quieres construir. Te ayudamos a darle forma, dirección y tecnología.</p></div><div className="relative mx-auto w-44 shrink-0 md:w-52 lg:w-60"><div className="webcode-wave-glow absolute inset-8 rounded-full bg-[#1e90ff]/20 blur-3xl" /><Image src="/assets/wave/poses/wave-invitando-proyecto.png" alt="Wave invitándote a iniciar un proyecto" width={512} height={512} className="webcode-wave-bob relative h-auto w-full scale-110 drop-shadow-[0_20px_45px_rgba(0,0,0,.55)]" /><span className="absolute -right-2 top-0 rounded-full border border-white/12 bg-[#0b0e15]/90 px-3 py-1.5 font-mono text-[9px] uppercase tracking-[.12em] text-[#1e90ff] backdrop-blur">Wave está listo</span></div><div className="relative z-10 grid shrink-0 gap-3 sm:grid-cols-2 md:grid-cols-1"><a href="mailto:WebCodeOfficial1@gmail.com" className="group flex items-center justify-between gap-8 rounded-xl bg-[#ff2a2a] px-5 py-4 font-bold transition hover:bg-[#ff4545]"><span className="flex items-center gap-3"><Mail className="h-5 w-5" />Enviar correo</span><ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></a><a href="https://wa.me/529992782716" target="_blank" rel="noreferrer" className="group flex items-center justify-between gap-8 rounded-xl border border-white/20 bg-white/[0.03] px-5 py-4 font-bold transition hover:border-[#1e90ff]/60 hover:bg-[#1e90ff]/5"><span className="flex items-center gap-3"><MessageCircle className="h-5 w-5 text-[#1e90ff]" />WhatsApp</span><ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></a></div></div></div></section>
+}
+
+function Footer() {
+  return <footer className="border-t border-white/[0.08] bg-[#07090d]"><div className="mx-auto grid max-w-[1440px] gap-10 px-5 py-14 text-sm md:grid-cols-[1.7fr_1fr_1.25fr_1.2fr] md:px-10"><div><Image src="/assets/brand/webcode-logo-oficial-transparente.png" alt="WebCode" width={180} height={54} className="h-auto w-40" /><p className="mt-5 max-w-xs text-xs leading-5 text-white/58">Diseño y tecnología para conectar ideas y crear productos con futuro.</p><p className="mt-6 text-[10px] text-white/44">© 2026 WebCode. Todos los derechos reservados.</p></div><FooterLinks title="Navegación" links={nav.slice(0, 4)} /><div><p className="font-mono text-[10px] uppercase tracking-[.16em] text-[#1e90ff]">Contacto</p><div className="mt-4 grid gap-3 text-xs text-white/68"><a className="flex items-center gap-2 hover:text-white" href="mailto:WebCodeOfficial1@gmail.com"><Mail className="h-3.5 w-3.5" />WebCodeOfficial1@gmail.com</a><a className="flex items-center gap-2 hover:text-white" href="https://wa.me/529992782716" target="_blank" rel="noreferrer"><MessageCircle className="h-3.5 w-3.5" />+52 999 278 2716</a></div></div><p className="self-center rounded-2xl border border-white/12 bg-white/[0.025] p-5 text-xl font-semibold leading-tight">Conectemos <span className="text-[#1e90ff]">ideas,</span><br />creemos <span className="text-[#ff2a2a]">futuro.</span></p></div></footer>
+}
+
+function FooterLinks({ title, links }: { title: string; links: string[][] }) {
+  return <div><p className="font-mono text-[10px] uppercase tracking-[.16em] text-[#1e90ff]">{title}</p><div className="mt-4 grid gap-2 text-xs text-white/50">{links.map(([label, href]) => <a key={href} href={href} className="w-fit transition hover:text-white">{label}</a>)}</div></div>
+}
+
+function Eyebrow({ children, color }: { children: React.ReactNode; color: "blue" | "red" }) {
+  return <p className={`flex items-center gap-2 font-mono text-[10px] uppercase tracking-[.2em] ${color === "blue" ? "text-[#1e90ff]" : "text-[#ff3a3a]"}`}><span className={`h-1.5 w-1.5 rounded-full ${color === "blue" ? "bg-[#1e90ff] shadow-[0_0_12px_#1e90ff]" : "bg-[#ff2a2a] shadow-[0_0_12px_#ff2a2a]"}`} />{children}</p>
+}
+
+function ConnectionRail({ index, accent }: { index: string; accent: "blue" | "red" }) {
+  return <div aria-hidden="true" className={`webcode-connection-rail hidden xl:block ${accent === "blue" ? "is-blue" : "is-red"}`}><span className="webcode-connection-node"><span>{index}</span></span></div>
 }

@@ -140,7 +140,7 @@ export function Contact() {
                 </p>
               </div>
               <WaveMascot
-                variant="soporte"
+                variant="contacto"
                 size={120}
                 className="drop-shadow-[0_12px_22px_rgba(0,0,0,0.3)]"
               />

@@ -1,11 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { SpiderWeb, SpiderWebCorner } from "@/components/spider-web"
-import { motion } from "framer-motion"
 
 export function Hero() {
   return (
@@ -70,29 +68,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-
-      {/* Wave floating in bottom right corner - desktop only */}
-      <motion.div
-        className="absolute bottom-8 right-8 hidden md:block z-20"
-        animate={{
-          translateY: [0, -15, 0],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      >
-        <Image
-          src="/wave.png"
-          alt="Wave Spider Mascot"
-          width={200}
-          height={200}
-          className="w-[200px] h-[200px] object-contain"
-          style={{ filter: "drop-shadow(0 0 20px rgba(229, 57, 53, 0.3))" }}
-          priority
-        />
-      </motion.div>
     </section>
   )
 }

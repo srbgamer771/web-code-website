@@ -34,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${geistSans.variable} ${geistMono.variable} bg-background`}>
       <body className="font-sans antialiased relative">
+        <a href="#contenido" className="webcode-skip-link">Saltar al contenido</a>
         <WaveLoader />
         {/* Full page spider web background */}
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">

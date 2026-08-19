@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { WaveMascot } from "@/components/wave-mascot"
 
 export function Footer() {
   return (
@@ -8,7 +7,6 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
-              <WaveMascot variant="saludando" size="xs" />
               <span className="font-bold text-white text-lg">
                 Web Code
               </span>

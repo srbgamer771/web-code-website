@@ -6,8 +6,8 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 
 const DEFAULT_DURATION_MS = 2400
 const DEFAULT_EXIT_DURATION_MS = 500
-const DEFAULT_WAVE_SRC = "/assets/wave/wave-programando.png"
-const DEFAULT_STORAGE_KEY = "wave-loader-seen"
+const DEFAULT_WAVE_SRC = "/assets/wave/wave-programando-transparent.png"
+const DEFAULT_STORAGE_KEY = "wave-loader-seen-v2"
 
 const LOADER_PHRASES = [
   "Tejiendo experiencias digitales...",

@@ -4,7 +4,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
-import { WaveMascot } from "@/components/wave-mascot"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -14,11 +13,6 @@ export function Header() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <div className="flex items-center gap-2">
-            <WaveMascot
-              variant="saludando"
-              size="xs"
-              className="drop-shadow-[0_0_10px_rgba(37,99,235,0.35)]"
-            />
             <span className="font-bold text-white text-lg tracking-wide hover:text-primary transition-colors">
               Web Code
             </span>

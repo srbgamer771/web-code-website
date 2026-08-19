@@ -4,17 +4,15 @@ import { cn } from "@/lib/utils"
 const WAVE_VARIANTS = {
   saludando: "/assets/wave/wave-saludando.png",
   error404: "/assets/wave/wave-error-404.png",
-  soporte: "/assets/wave/wave-soporte.png",
-  programando: "/assets/wave/wave-programando.png",
-  llamada: "/assets/wave/wave-llamada.png",
+  contacto: "/assets/wave/wave-contacto.png",
+  programando: "/assets/wave/wave-programando-transparent.png",
 } as const
 
 const WAVE_ALT_TEXT: Record<WaveMascotVariant, string> = {
   saludando: "Wave saludando, mascota de WebCode",
   error404: "Wave en error 404, mascota de WebCode",
-  soporte: "Wave dando soporte, mascota de WebCode",
+  contacto: "Wave en contacto, mascota de WebCode",
   programando: "Wave programando, mascota de WebCode",
-  llamada: "Wave en llamada, mascota de WebCode",
 }
 
 const WAVE_SIZES = {

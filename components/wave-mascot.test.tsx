@@ -7,7 +7,7 @@ describe("WaveMascot", () => {
 
     expect(
       screen.getByRole("img", { name: /wave programando, mascota de webcode/i }),
-    ).toHaveAttribute("src", "/assets/wave/wave-programando.png")
+    ).toHaveAttribute("src", "/assets/wave/wave-programando-transparent.png")
   })
 
   it("supports numeric sizing without deforming the image", () => {
