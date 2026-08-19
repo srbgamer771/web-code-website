@@ -229,6 +229,16 @@
   50% { transform: rotate(-4deg); }
 }
 
+@keyframes webcode-wave-bob-mobile {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes webcode-wave-glow-mobile {
+  0%, 100% { opacity: .36; transform: scale(.98); }
+  50% { opacity: .54; transform: scale(1.02); }
+}
+
 .webcode-connection-rail {
   --thread-color: 30, 144, 255;
   position: absolute;
@@ -316,6 +326,39 @@
     animation: webcode-section-enter linear both;
     animation-timeline: view();
     animation-range: entry 8% cover 28%;
+  }
+}
+
+@media (max-width: 767px) {
+  /* En móvil el contenido debe estar disponible de inmediato al usar la navegación. */
+  .webcode-section-reveal {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  /* Conservamos la personalidad de Wave sin mover tarjetas o fondos completos. */
+  .webcode-wave-float,
+  .webcode-web-drift,
+  .webcode-web-drift-alt,
+  .webcode-connection-rail::after,
+  .webcode-wave-swing {
+    animation: none !important;
+    transform: none;
+  }
+
+  .webcode-reveal { animation-duration: 450ms; }
+
+  .webcode-guide-wave,
+  .webcode-wave-bob {
+    animation-name: webcode-wave-bob-mobile;
+    animation-duration: 6.5s;
+    animation-timing-function: ease-in-out;
+  }
+
+  .webcode-wave-glow {
+    animation-name: webcode-wave-glow-mobile;
+    animation-duration: 6.5s;
+    animation-timing-function: ease-in-out;
   }
 }
 
