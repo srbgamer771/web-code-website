@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, ArrowUpRight, Braces, Layers3, Mail, MessageCircle, Palette, Sparkles, Target } from "lucide-react"
+import { DeveloperLab } from "@/components/developer-lab/developer-lab"
 
 const profiles = {
   "santiago-rios": {
@@ -40,6 +41,11 @@ export function generateStaticParams() {
 
 export default async function TeamProfile({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
+
+  if (slug === "santiago-rios") {
+    return <DeveloperLab />
+  }
+
   const profile = profiles[slug as keyof typeof profiles]
   if (!profile) notFound()
 
