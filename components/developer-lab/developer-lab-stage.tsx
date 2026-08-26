@@ -9,13 +9,25 @@ import { LabMonitor } from "./lab-monitor"
 import type { LabState } from "./lab-types"
 import { LabWeb } from "./lab-web"
 import { WaveCompanion } from "./wave-companion"
+import { LabAudioControl } from "./lab-audio-control"
 
 type DeveloperLabStageProps = {
   activeState: LabState
   onNavigate: (state: LabState) => void
+  audioPlaying: boolean
+  audioVolume: number
+  onToggleAudio: () => void
+  onAudioVolumeChange: (volume: number) => void
 }
 
-export function DeveloperLabStage({ activeState, onNavigate }: DeveloperLabStageProps) {
+export function DeveloperLabStage({
+  activeState,
+  onNavigate,
+  audioPlaying,
+  audioVolume,
+  onToggleAudio,
+  onAudioVolumeChange,
+}: DeveloperLabStageProps) {
   const [ambientLight, setAmbientLight] = useState(true)
 
   return (
@@ -43,6 +55,15 @@ export function DeveloperLabStage({ activeState, onNavigate }: DeveloperLabStage
           Build
           <span className="mx-3 text-white/25">·</span>
           <span className="text-[#ff4545]">Impact</span>
+        </div>
+
+        <div className="absolute right-[6.2%] top-[3.2%]">
+          <LabAudioControl
+            playing={audioPlaying}
+            volume={audioVolume}
+            onToggle={onToggleAudio}
+            onVolumeChange={onAudioVolumeChange}
+          />
         </div>
 
         <button

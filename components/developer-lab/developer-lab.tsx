@@ -11,10 +11,13 @@ import { LabMonitor } from "./lab-monitor"
 import type { LabState } from "./lab-types"
 import { LabWeb } from "./lab-web"
 import { WaveCompanion } from "./wave-companion"
+import { LabAudioControl } from "./lab-audio-control"
+import { useLabAudio } from "./use-lab-audio"
 
 export function DeveloperLab() {
   const [activeState, setActiveState] = useState<LabState>("initial")
   const [mobileAmbientLight, setMobileAmbientLight] = useState(true)
+  const labAudio = useLabAudio()
   const mobileMonitorRef = useRef<HTMLDivElement>(null)
 
   function handleNavigate(state: LabState) {
@@ -37,7 +40,14 @@ export function DeveloperLab() {
       data-lab-state={activeState}
       className="min-h-screen overflow-hidden bg-[#06080d] text-white"
     >
-      <DeveloperLabStage activeState={activeState} onNavigate={handleNavigate} />
+      <DeveloperLabStage
+        activeState={activeState}
+        onNavigate={handleNavigate}
+        audioPlaying={labAudio.playing}
+        audioVolume={labAudio.volume}
+        onToggleAudio={labAudio.toggle}
+        onAudioVolumeChange={labAudio.setVolume}
+      />
 
       <div className="relative flex min-h-screen xl:hidden">
         <Image
@@ -114,15 +124,24 @@ export function DeveloperLab() {
               <div className="absolute left-4 top-4 rounded-full border border-[#1e90ff]/35 bg-[#050811]/88 px-3 py-2 font-mono text-[8px] uppercase tracking-[.18em] text-white/65 backdrop-blur-md">
                 <span className="text-[#4aa5ff]">Focus</span> · Build · <span className="text-[#ff4545]">Impact</span>
               </div>
-              <button
-                type="button"
-                onClick={() => setMobileAmbientLight((current) => !current)}
-                aria-pressed={mobileAmbientLight}
-                aria-label={mobileAmbientLight ? "Atenuar iluminación del laboratorio" : "Encender iluminación del laboratorio"}
-                className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-xl border border-white/14 bg-[#050811]/88 text-white/70 backdrop-blur-md"
-              >
-                <Lightbulb className="h-4 w-4" strokeWidth={1.7} aria-hidden="true" />
-              </button>
+              <div className="absolute right-4 top-4 flex items-center gap-2">
+                <LabAudioControl
+                  compact
+                  playing={labAudio.playing}
+                  volume={labAudio.volume}
+                  onToggle={labAudio.toggle}
+                  onVolumeChange={labAudio.setVolume}
+                />
+                <button
+                  type="button"
+                  onClick={() => setMobileAmbientLight((current) => !current)}
+                  aria-pressed={mobileAmbientLight}
+                  aria-label={mobileAmbientLight ? "Atenuar iluminación del laboratorio" : "Encender iluminación del laboratorio"}
+                  className="grid h-10 w-10 place-items-center rounded-xl border border-white/14 bg-[#050811]/88 text-white/70 backdrop-blur-md"
+                >
+                  <Lightbulb className="h-4 w-4" strokeWidth={1.7} aria-hidden="true" />
+                </button>
+              </div>
               <div className="absolute -bottom-2 left-2 sm:left-[8%]">
                 <WaveCompanion activeState={activeState} immersive />
               </div>
