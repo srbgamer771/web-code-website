@@ -1,76 +1,66 @@
-# Developer Lab — Immersive Design QA
+# Diego Creator Room — Design QA
 
-**Comparison target**
+## Comparison target
 
-- Source visual truth: `C:\\Users\\Santy\\Downloads\\WhatsApp Image 2026-08-20 at 9.07.17 PM.jpeg`
-- Implementation: `http://localhost:3000/equipo/santiago-rios`
-- Generated environment plate: `public/assets/developer-lab/developer-lab-room-wave-gear-v3.png`
-- The desk can now uses the approved black-and-green Wave label with the winking mascot; the rest of the environment plate remains unchanged.
-- The headphones now use the approved WebCode Lab treatment: matte black finish, red/blue accent lighting, branded headband and illuminated spiderweb/code earcup.
+- Source visual truth: `C:\Users\Santy\Downloads\Imagen de Codex 25 ago 2026, 06_32_01 p.m..png`
+- Product references: Neon City can from `Imagen de Codex 25 ago 2026, 06_25_52 p.m..png`; WebCode Lab headphones from `Imagen de Codex 20 ago 2026, 11_14_15 p.m..png`.
+- Implementation: `http://localhost:3000/equipo/diego-escobar`
+- Final environment plate: `public/assets/creator-room/creator-room-background-v2-neon-city.png`
+- Source pixels: 1536 × 1024 (3:2).
+- Desktop verification: 1280 × 720 CSS px (16:9).
+- Mobile verification: 390 × 844 CSS px.
+- States verified: Inicio, Proyectos, Habilidades, Formación and Contacto.
 
-## Mobile immersive parity
+## Evidence
 
-- Mobile now keeps the Developer Lab environment instead of falling back to a plain content stack.
-- The room has a subtle optimized drift, ambient light state, scan line and responsive focus pulse.
-- Wave changes pose for every active module and retains a lightweight floating transition.
-- The interactive spider-web map is visible on mobile with touch-sized nodes and active-node breathing.
-- Selecting a compact-navigation item or web node transitions the monitor and smoothly returns focus to it.
-- `prefers-reduced-motion` disables all new ambient motion while preserving the complete experience.
+- Before polish: `design-qa-assets/diego-room-before-polish.png`
+- Desktop after polish: `design-qa-assets/diego-room-after-polish-v1.png`
+- Mobile after polish: `design-qa-assets/diego-room-mobile-after-polish.png`
+- Wave clearance correction: `design-qa-assets/diego-room-wave-clear.png`
+- Reference and desktop implementation were opened together in the same visual comparison input.
 
-## Interaction polish
+## Full-view comparison
 
-- The immersive monitor is larger and more central, with reduced dead space and a short screen sweep on every state change.
-- The environment uses a restrained vignette so visual priority reads: Developer Lab → monitor → Wave → experimental web → desk accessories.
-- The web now distinguishes direct navigation from experimental navigation and progressively draws the route from `Inicio` to the active node.
-- A traveling signal continues along the selected route while the node breathes.
-- Wave keeps the state-specific pose library and adds a small directional tilt, lateral reaction and impulse when modules change.
-- “Explorar el Lab” remains in place, transitions the monitor and activates Projects without a page navigation.
-- Initial desktop: `C:\\Users\\Santy\\Documents\\ChatGPT\\WebcodeDesign\\developer-lab-immersive-qa\\initial-desktop.png`
-- Projects desktop: `C:\\Users\\Santy\\Documents\\ChatGPT\\WebcodeDesign\\developer-lab-immersive-qa\\projects-desktop.png`
-- Initial mobile: `C:\\Users\\Santy\\Documents\\ChatGPT\\WebcodeDesign\\developer-lab-immersive-qa\\initial-mobile.png`
-- Side-by-side comparison: `C:\\Users\\Santy\\Documents\\ChatGPT\\WebcodeDesign\\developer-lab-immersive-qa\\comparison-immersive.png`
-- Desktop viewport: 1536 × 1024 CSS px.
-- Mobile viewport: 390 × 844 requested; browser content measured 375 CSS px wide.
+- The implementation preserves the reference hierarchy: persistent creator sidebar, centered Creator Room identity, central working monitor, secondary monitor, Wave, physical production desk, service strip and philosophy card.
+- The 3:2 source contains more vertical desk area than the 16:9 browser viewport. The implementation intentionally prioritizes the title → monitor → Wave → tablet sequence and keeps the environment as supporting context.
+- The new environment plate keeps the original camera, lighting and room composition while replacing the coffee mug with the approved Neon City can and the generic headphones with the black WebCode Lab headset.
 
-**Full-view comparison evidence**
+## Focused comparison
 
-- The implementation now reproduces the approved laboratory atmosphere instead of presenting a flat dashboard.
-- The physical scene includes the approved monitor, laptop, notebook, keyboard, mouse, mousepad, mug, can, plants, shelving, headphones and city window.
-- Official WebCode UI, logo and Wave assets are layered over a text-free environment plate; no mockup data was reused as real content.
-- Main composition matches the reference hierarchy: persistent left navigation, Santiago identity, central monitor, connected web map, Wave and closing contact action.
+- Central and secondary screens remain live HTML interfaces rather than baked raster UI. Every navigation state updates both monitors without a page transition.
+- Wave no longer has a dark circular halo. Transparent, state-aware assets make Wave work at the laptop in technical states and point toward the experience in presentation states.
+- Wave now stays entirely below the main monitor content area. The extra tablet status bar was removed to restore the cleaner physical desk surface requested in the visual review.
 
-**Focused region comparison evidence**
+## Required fidelity surfaces
 
-- Monitor: interactive real content is positioned inside the physical screen and scrolls internally when a state exceeds the available space.
-- Web map: active node and red connection signal update with the selected section; passive nodes remain electric blue.
-- Wave: official poses change by state and use restrained entrance/idle motion without blocking navigation.
-- Mobile: environment becomes a low-contrast backdrop while navigation and content remain readable, vertical and free of horizontal overflow.
+- **Typography:** technical mono labels, tracked uppercase display title and handwritten Diego signature follow the source hierarchy.
+- **Spacing and layout:** the desktop room follows the mockup’s main tracks; mobile reorganizes the same hierarchy vertically instead of shrinking the desktop composition.
+- **Color:** near-black glass surfaces, WebCode red, electric blue, purple accents and warm ambient light remain consistent with the approved direction.
+- **Assets:** official logo, Diego portrait, approved Wave assets, Neon City can and WebCode headphones are real image assets. No placeholder artwork is visible.
+- **Interaction:** sidebar is the accessible navigation; the room, monitors, Wave and tablet provide the experimental layer.
 
-**Required fidelity surfaces**
+## Interaction verification
 
-- Typography: WebCode Geist/Geist Mono hierarchy matches the technical/editorial reference direction.
-- Spacing and composition: the 1536 × 1024 layout aligns to the source monitor, desk and wall zones.
-- Color and lighting: black, deep navy, electric blue, WebCode red and localized practical lighting are preserved.
-- Asset fidelity: official logo and Wave artwork remain unchanged; the generated room plate contains no recreated branding or mascot.
-- Content fidelity: only repository-backed projects and real contact data are displayed.
+- Desktop navigation updated the main monitor, secondary monitor, tablet accent and Wave pose for Proyectos, Habilidades, Formación and Contacto.
+- Contact links expose real mail, WhatsApp and LinkedIn destinations.
+- The redundant desktop audio control was removed; Focus Mode remains available once in the sidebar and in the compact mobile header.
+- Lighting control remains functional and now uses a recognizable lightbulb icon.
+- Mobile navigation is horizontally scrollable, Contacto opens correctly and the selected panel scrolls into view.
+- Reduced-motion support disables panel, Wave, tablet scan and audio-meter animations.
+- No runtime error overlay remained after the final fix.
 
-**Interaction verification**
+## Comparison history
 
-- All seven sections switch without page reload.
-- Sidebar, monitor, Wave pose and web map share one central state.
-- Ambient light control changes the room lighting state.
-- Contact CTA opens the Contact state.
-- Desktop and mobile have no horizontal overflow.
-- Reduced-motion rules cover Wave, node and web-signal animation.
+- **Before polish — P1:** Wave appeared pasted over the room because of a visible dark halo and blend mode.
+- **Before polish — P2:** the drawing tablet was blank, the desktop audio control was duplicated and the sidebar exposed a heavy scrollbar with the last item partially hidden.
+- **Fixes:** clean transparent Wave poses, state-aware reactions, state-colored monitor glow, single audio entry point, hidden scrollbar, tighter sidebar rhythm, Neon City can and WebCode headphones.
+- **After polish:** desktop and mobile captures confirm corrected hierarchy, complete navigation visibility and integrated physical/digital layers.
+- **User review correction — P1/P2:** Wave covered card and tablet information, and the tablet status bar added unnecessary visual weight. Wave was reduced and moved to the open desk area; the overlay bar and its animation were removed. The latest same-input comparison confirms all monitor content is unobstructed.
 
-**Findings**
+## Findings
 
-- No remaining P0, P1 or P2 findings for the immersive build scope.
-
-**P3 follow-up**
-
-- Fine-tune Wave scale and placement after user review of the live checkpoint.
-- Add confirmed Journey, Ahora and Inspiraciones content when Santiago supplies it.
-- Optional audio ambience should only be added if a licensed audio asset is supplied.
+- No remaining P0, P1 or P2 findings.
+- P3: the source mockup contains a denser cinematic hero at 3:2; the implemented 16:9 crop is intentionally optimized for common laptop displays.
+- P3: future verified reel thumbnails can add more project-specific visual variety without changing the current system.
 
 final result: passed

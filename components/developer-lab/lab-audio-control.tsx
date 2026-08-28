@@ -8,6 +8,8 @@ type LabAudioControlProps = {
   onToggle: () => void
   onVolumeChange: (volume: number) => void
   compact?: boolean
+  label?: string
+  contextName?: string
 }
 
 export function LabAudioControl({
@@ -16,6 +18,8 @@ export function LabAudioControl({
   onToggle,
   onVolumeChange,
   compact = false,
+  label = "Lab Beats",
+  contextName = "Developer Lab",
 }: LabAudioControlProps) {
   if (compact) {
     return (
@@ -23,7 +27,7 @@ export function LabAudioControl({
         type="button"
         onClick={onToggle}
         aria-pressed={playing}
-        aria-label={playing ? "Pausar música del Developer Lab" : "Reproducir música del Developer Lab"}
+        aria-label={playing ? `Pausar música de ${contextName}` : `Reproducir música de ${contextName}`}
         className={`relative grid h-10 w-10 place-items-center rounded-xl border bg-[#050811]/88 backdrop-blur-md transition-colors ${
           playing ? "border-[#1e90ff]/55 text-[#58adff]" : "border-white/14 text-white/70"
         }`}
@@ -44,11 +48,11 @@ export function LabAudioControl({
         type="button"
         onClick={onToggle}
         aria-pressed={playing}
-        aria-label={playing ? "Pausar música del Developer Lab" : "Reproducir música del Developer Lab"}
+        aria-label={playing ? `Pausar música de ${contextName}` : `Reproducir música de ${contextName}`}
         className="flex h-full items-center gap-2 px-3 text-white/70 transition-colors hover:text-white"
       >
         {playing ? <Pause className="h-3.5 w-3.5 text-[#4aa5ff]" aria-hidden="true" /> : <Play className="h-3.5 w-3.5" aria-hidden="true" />}
-        <span className="font-mono text-[9px] uppercase tracking-[.14em]">Lab Beats</span>
+        <span className="font-mono text-[9px] uppercase tracking-[.14em]">{label}</span>
         <span className="flex h-3 items-end gap-[2px]" aria-hidden="true">
           {[0, 1, 2].map((bar) => (
             <span

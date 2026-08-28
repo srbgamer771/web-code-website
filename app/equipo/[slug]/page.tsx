@@ -3,6 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, ArrowRight, ArrowUpRight, Braces, Layers3, Mail, MessageCircle, Palette, Sparkles, Target } from "lucide-react"
 import { DeveloperLab } from "@/components/developer-lab/developer-lab"
+import { CreatorRoom } from "@/components/creator-room/creator-room"
 
 const profiles = {
   "santiago-rios": {
@@ -44,6 +45,10 @@ export default async function TeamProfile({ params }: { params: Promise<{ slug: 
 
   if (slug === "santiago-rios") {
     return <DeveloperLab />
+  }
+
+  if (slug === "diego-escobar") {
+    return <CreatorRoom />
   }
 
   const profile = profiles[slug as keyof typeof profiles]
